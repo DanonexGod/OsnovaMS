@@ -1,0 +1,138 @@
+/* Контейнер для 4-х карточек статистики */
+.stats-grid {
+    display: grid;
+    /* 4 колонки, каждая занимает равную долю пространства */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; /* Отступ между блоками */
+    max-width: 1200px;
+    margin: 40px auto; /* Центрирует блок по странице */
+    padding: 0 20px;
+}
+
+/* Стилизация карточки */
+.hero__stat {
+    background: #ffffff;
+    padding: 30px 15px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 1px solid #f1f5f9;
+}
+
+/* Настройка текста внутри */
+.hero__stat span {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0056b3;
+    margin-bottom: 8px;
+}
+
+.hero__stat p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* АДАПТИВНОСТЬ: чтобы ничего не ехало */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: 1fr; /* 1 колонка на мобильных */
+    }
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%; /* Убедитесь, что ширина 100% */
+    margin-top: 30px;
+}
+
+/* В файле _stats-grid.css */
+.hero__stat {
+    background: #ffffff;
+    padding: 30px 10px; /* Уменьшили боковые отступы */
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 1px solid #f1f5f9;
+    min-width: 120px; /* Добавили минимальную ширину */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero__stat span {
+    display: block;
+    font-size: 1.5rem; /* Немного уменьшили шрифт для надежности */
+    font-weight: 800;
+    color: #0056b3;
+    white-space: nowrap; /* Запрещает тексту переноситься на новую строку */
+}
+
+/* _stats-grid.css */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px; /* Немного уменьшили отступ, чтобы дать больше места карточкам */
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 10px;
+}
+
+.hero__stat {
+    background: #ffffff;
+    padding: 20px 10px; /* Уменьшили внутренние отступы */
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 1px solid #f1f5f9;
+    /* Важно: заставляем карточку быть гибкой */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.hero__stat span {
+    display: block;
+    font-size: 1.6rem; /* Немного уменьшили размер цифр */
+    font-weight: 800;
+    color: #0056b3;
+    margin-bottom: 5px;
+    white-space: nowrap; /* Текст не будет переноситься внутри цифр */
+}
+
+.hero__stat p {
+    font-size: 0.85rem; /* Немного уменьшили размер подписи */
+    color: #64748b;
+    margin: 0;
+    line-height: 1.2; /* Уплотнили межстрочный интервал */
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr; /* Одна колонка на очень узких экранах */
+    }
+}
+
+@media (max-width: 400px) {
+    .hero__stat span { font-size: 1.3rem; }
+    .hero__stat p { font-size: 0.75rem; }
+}

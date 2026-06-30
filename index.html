@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="assets/css/components/clients.css">
     <link rel="stylesheet" href="assets/css/components/footer.css">
     <link rel="stylesheet" href="assets/css/components/_project-cards.css">
+    <link rel="stylesheet" href="assets/css/components/_stats-grid.css">
 
     <!-- ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ МОБИЛЬНОЙ АДАПТАЦИИ ШАПКИ -->
     <style>
@@ -134,11 +135,24 @@
                 <div class="hero__image-frame">
                     <img src="assets/img/hero-device.png" alt="Обслуживание банкоматов">
                 </div>
-                <div class="hero__stats">
-                    <div class="hero__stat"><span>100%</span><p>Качество</p></div>
-                    <div class="hero__stat"><span>Вся РФ</span><p>Выезд инженеров</p></div>
-                </div>
-            </div>
+<div class="stats-grid">
+    <div class="hero__stat">
+        <span class="counter" data-target="100">100%</span>
+        <p>Качество</p>
+    </div>
+    <div class="hero__stat">
+        <span class="text-static">Вся РФ</span>
+        <p>Выезд инженеров</p>
+    </div>
+    <div class="hero__stat">
+        <span class="counter" data-target="1000">0+</span>
+        <p>Восстановленных устройств</p>
+    </div>
+    <div class="hero__stat">
+        <span class="counter" data-target="89">0+</span>
+        <p>Регионов России</p>
+    </div>
+</div>
         </div>
     </div>
 </section>
@@ -468,5 +482,29 @@
 
         animatedElements.forEach(el => animationObserver.observe(el));
     </script>
+    
+<script>
+document.querySelectorAll('.counter').forEach(counter => {
+    // Если это 100%, просто ставим текст
+    if (counter.getAttribute('data-target') === "100") {
+        counter.innerText = "100%";
+        return;
+    }
+
+    const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText.replace('+', '');
+        const increment = target / 50; 
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment) + "+";
+            setTimeout(updateCount, 40);
+        } else {
+            counter.innerText = target + "+";
+        }
+    };
+    updateCount();
+});
+</script>
 </body>
 </html>

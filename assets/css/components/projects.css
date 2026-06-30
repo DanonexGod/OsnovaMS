@@ -240,3 +240,21 @@
         font-size: 1.8rem;
     }
 }
+
+.hero__stat {
+    text-align: center;
+    padding: 10px;
+}
+
+.hero__stat span {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0056b3; /* Ваш синий цвет */
+}
+
+.hero__stat p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 5px 0 0;
+}
