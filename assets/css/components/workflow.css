@@ -1,0 +1,102 @@
+/* ==========================================================================
+   WORKFLOW
+========================================================================== */
+
+.workflow {
+    position: relative;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.workflow__header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 80px;
+}
+
+.workflow__timeline {
+    position: relative;
+    display: grid;
+    gap: 40px;
+}
+
+.workflow__timeline::before {
+    content: "";
+    position: absolute;
+    left: 36px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        var(--color-primary),
+        rgba(15,95,168,.15)
+    );
+}
+
+.workflow-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.workflow-step__circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-md);
+    z-index: 2;
+}
+
+.workflow-step__content {
+    background: #fff;
+    border-radius: 24px;
+    padding: 32px;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    transition: .35s;
+}
+
+.workflow-step__content:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.workflow-step h3 {
+    margin-bottom: 12px;
+}
+
+.workflow-step p {
+    margin: 0;
+}
+
+@media(max-width:768px){
+
+.workflow__timeline::before{
+left:20px;
+}
+
+.workflow-step{
+grid-template-columns:40px 1fr;
+gap:20px;
+}
+
+.workflow-step__circle{
+width:40px;
+height:40px;
+font-size:.95rem;
+}
+
+.workflow-step__content{
+padding:24px;
+}
+
+}

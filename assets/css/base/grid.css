@@ -1,0 +1,341 @@
+/* ==========================================================================
+   GRID SYSTEM
+   MS Design System
+========================================================================== */
+
+/* ==========================================================================
+   ROOT GRID
+========================================================================== */
+
+.grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+
+    gap: var(--grid-gap);
+
+}
+
+/* ==========================================================================
+   AUTO GRID
+========================================================================== */
+
+.grid--auto {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(320px, 100%), 1fr)
+    );
+
+    gap: var(--grid-gap);
+
+}
+
+.grid--cards {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    );
+
+    gap: var(--grid-gap);
+
+}
+
+.grid--services {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(340px, 1fr)
+    );
+
+    gap: var(--grid-gap);
+
+}
+
+.grid--projects {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(380px, 1fr)
+    );
+
+    gap: calc(var(--grid-gap) + 8px);
+
+}
+
+/* ==========================================================================
+   COLUMN SPAN
+========================================================================== */
+
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* ==========================================================================
+   ROW SPAN
+========================================================================== */
+
+.row-1 { grid-row: span 1; }
+.row-2 { grid-row: span 2; }
+.row-3 { grid-row: span 3; }
+.row-4 { grid-row: span 4; }
+
+/* ==========================================================================
+   ALIGNMENT
+========================================================================== */
+
+.grid-center {
+
+    align-items: center;
+
+}
+
+.grid-start {
+
+    align-items: start;
+
+}
+
+.grid-end {
+
+    align-items: end;
+
+}
+
+.grid-stretch {
+
+    align-items: stretch;
+
+}
+
+.justify-center {
+
+    justify-items: center;
+
+}
+
+.justify-start {
+
+    justify-items: start;
+
+}
+
+.justify-end {
+
+    justify-items: end;
+
+}
+
+/* ==========================================================================
+   GAP HELPERS
+========================================================================== */
+
+.gap-xs {
+
+    gap: var(--space-2);
+
+}
+
+.gap-sm {
+
+    gap: var(--space-4);
+
+}
+
+.gap-md {
+
+    gap: var(--space-6);
+
+}
+
+.gap-lg {
+
+    gap: var(--space-8);
+
+}
+
+.gap-xl {
+
+    gap: var(--space-12);
+
+}
+
+/* ==========================================================================
+   TWO COLUMNS
+========================================================================== */
+
+.grid-2 {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: var(--grid-gap);
+
+}
+
+/* ==========================================================================
+   THREE COLUMNS
+========================================================================== */
+
+.grid-3 {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: var(--grid-gap);
+
+}
+
+/* ==========================================================================
+   FOUR COLUMNS
+========================================================================== */
+
+.grid-4 {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: var(--grid-gap);
+
+}
+
+/* ==========================================================================
+   FIVE COLUMNS
+========================================================================== */
+
+.grid-5 {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: var(--grid-gap);
+
+}
+
+/* ==========================================================================
+   SIX COLUMNS
+========================================================================== */
+
+.grid-6 {
+
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: var(--grid-gap);
+
+}
+
+/* ==========================================================================
+   RESPONSIVE
+========================================================================== */
+
+@media (max-width: 1280px) {
+
+    .grid-5 {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+}
+
+@media (max-width: 1024px) {
+
+    .grid-3,
+    .grid-4,
+    .grid-5,
+    .grid-6 {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .grid--projects {
+
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(320px, 1fr)
+        );
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .grid,
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .grid-5,
+    .grid-6 {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .grid--services,
+    .grid--cards,
+    .grid--projects,
+    .grid--auto {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-10,
+    .col-11,
+    .col-12 {
+
+        grid-column: span 1;
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .grid,
+    .grid--auto,
+    .grid--cards,
+    .grid--services,
+    .grid--projects {
+
+        gap: var(--space-6);
+
+    }
+
+}

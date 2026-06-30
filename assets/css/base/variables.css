@@ -1,0 +1,274 @@
+:root {
+
+    /* ==========================================================================
+       COLORS
+    ========================================================================== */
+
+    --color-primary: #0F5FA8;
+    --color-primary-light: #4CB7F0;
+    --color-primary-dark: #0A4C88;
+
+    --color-accent: #18C29C;
+
+    --color-text: #1C2733;
+    --color-text-light: #5C6B7A;
+    --color-text-muted: #7C8A99;
+
+    --color-heading: #102033;
+
+    --color-background: #FFFFFF;
+    --color-background-alt: #F8FAFC;
+    --color-surface: #FFFFFF;
+    --color-surface-secondary: #EDF2F7;
+
+    --color-border: #E3E8EF;
+    --color-border-strong: #CDD6E1;
+
+    --color-success: #16A34A;
+    --color-warning: #F4B400;
+    --color-danger: #E53935;
+    --color-info: #2196F3;
+
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+
+    /* ==========================================================================
+       GRADIENTS
+    ========================================================================== */
+
+    --gradient-primary: linear-gradient(
+        135deg,
+        #0F5FA8 0%,
+        #4CB7F0 100%
+    );
+
+    --gradient-dark: linear-gradient(
+        180deg,
+        #1C2733 0%,
+        #111C28 100%
+    );
+
+    --gradient-glass: linear-gradient(
+        180deg,
+        rgba(255,255,255,.75),
+        rgba(255,255,255,.45)
+    );
+
+    /* ==========================================================================
+       TYPOGRAPHY
+    ========================================================================== */
+
+    --font-heading: "Manrope", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    --font-size-xs: .75rem;       /* 12 */
+    --font-size-sm: .875rem;      /* 14 */
+    --font-size-base: 1rem;       /* 16 */
+    --font-size-lg: 1.125rem;     /* 18 */
+    --font-size-xl: 1.25rem;      /* 20 */
+    --font-size-2xl: 1.5rem;      /* 24 */
+    --font-size-3xl: 2rem;        /* 32 */
+    --font-size-4xl: 2.5rem;      /* 40 */
+    --font-size-5xl: 3rem;        /* 48 */
+    --font-size-6xl: 4rem;        /* 64 */
+
+    --line-height-tight: 1.1;
+    --line-height-heading: 1.2;
+    --line-height-body: 1.7;
+
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+
+    /* ==========================================================================
+       LAYOUT
+    ========================================================================== */
+
+    --container-width: 1320px;
+    --container-padding: 24px;
+    --grid-columns: 12;
+    --grid-gap: 32px;
+
+    --section-space-sm: 80px;
+    --section-space: 120px;
+    --section-space-lg: 160px;
+
+    /* ==========================================================================
+       SPACING
+    ========================================================================== */
+
+    --space-0: 0;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-20: 80px;
+    --space-24: 96px;
+    --space-30: 120px;
+    --space-40: 160px;
+
+    /* ==========================================================================
+       BORDER RADIUS
+    ========================================================================== */
+
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-full: 9999px;
+
+    /* ==========================================================================
+       SHADOWS
+    ========================================================================== */
+
+    --shadow-xs:
+        0 2px 6px rgba(16, 32, 51, .05);
+
+    --shadow-sm:
+        0 8px 20px rgba(16, 32, 51, .08);
+
+    --shadow-md:
+        0 16px 40px rgba(16, 32, 51, .12);
+
+    --shadow-lg:
+        0 32px 70px rgba(16, 32, 51, .18);
+
+    --shadow-glass:
+        0 12px 40px rgba(15,95,168,.15);
+
+    /* ==========================================================================
+       GLASS
+    ========================================================================== */
+
+    --glass-bg: rgba(255,255,255,.60);
+    --glass-border: rgba(255,255,255,.25);
+    --glass-blur: blur(18px);
+
+    /* ==========================================================================
+       TRANSITIONS
+    ========================================================================== */
+
+    --transition-fast: .18s ease;
+    --transition-base: .3s ease;
+    --transition-slow: .55s ease;
+
+    /* ==========================================================================
+       Z-INDEX
+    ========================================================================== */
+
+    --z-dropdown: 100;
+    --z-sticky: 500;
+    --z-fixed: 800;
+    --z-modal: 1000;
+    --z-loader: 1500;
+
+    /* ==========================================================================
+       BUTTONS
+    ========================================================================== */
+
+    --button-height: 56px;
+    --button-padding-x: 34px;
+
+    /* ==========================================================================
+       FORMS
+    ========================================================================== */
+
+    --input-height: 56px;
+    --input-radius: 14px;
+
+    /* ==========================================================================
+       HEADER
+    ========================================================================== */
+
+    --header-height: 92px;
+
+    /* ==========================================================================
+       MAX CONTENT WIDTH
+    ========================================================================== */
+
+    --content-width: 860px;
+
+}
+
+/* ==========================================================================
+   RESPONSIVE
+========================================================================== */
+
+@media (max-width: 1280px) {
+
+    :root {
+
+        --container-width: 1140px;
+
+    }
+
+}
+
+@media (max-width: 1024px) {
+
+    :root {
+
+        --container-padding: 20px;
+
+        --section-space: 96px;
+
+        --section-space-lg: 120px;
+
+        --grid-gap: 24px;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    :root {
+
+        --container-padding: 18px;
+
+        --section-space: 72px;
+
+        --section-space-lg: 96px;
+
+        --font-size-6xl: 3rem;
+        --font-size-5xl: 2.5rem;
+        --font-size-4xl: 2rem;
+        --font-size-3xl: 1.75rem;
+
+        --button-height: 52px;
+
+        --header-height: 76px;
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    :root {
+
+        --container-padding: 16px;
+
+        --section-space: 56px;
+
+        --section-space-lg: 72px;
+
+        --grid-gap: 20px;
+
+        --font-size-6xl: 2.5rem;
+        --font-size-5xl: 2rem;
+        --font-size-4xl: 1.75rem;
+
+    }
+
+}

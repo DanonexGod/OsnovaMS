@@ -1,0 +1,106 @@
+/* ==========================================================================
+   GRID
+========================================================================== */
+
+.grid{
+    display:grid;
+    gap:32px;
+}
+
+.grid--2{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+.grid--3{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+.grid--4{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+}
+
+.grid--5{
+    grid-template-columns:repeat(5,minmax(0,1fr));
+}
+
+.grid--6{
+    grid-template-columns:repeat(6,minmax(0,1fr));
+}
+
+.grid--center{
+    align-items:center;
+}
+
+.grid--between{
+    justify-content:space-between;
+}
+
+.grid--stretch{
+    align-items:stretch;
+}
+
+.gap-xs{
+    gap:12px;
+}
+
+.gap-sm{
+    gap:20px;
+}
+
+.gap-md{
+    gap:32px;
+}
+
+.gap-lg{
+    gap:48px;
+}
+
+.gap-xl{
+    gap:72px;
+}
+
+.col-span-2{
+    grid-column:span 2;
+}
+
+.col-span-3{
+    grid-column:span 3;
+}
+
+@media (max-width:1100px){
+
+    .grid--4,
+    .grid--5,
+    .grid--6{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+}
+
+@media (max-width:768px){
+
+    .grid--2,
+    .grid--3,
+    .grid--4,
+    .grid--5,
+    .grid--6{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .col-span-2,
+    .col-span-3{
+
+        grid-column:auto;
+
+    }
+
+}
+.container {
+    width: 100%;
+    max-width: 1200px; /* Жесткий лимит ширины для всего сайта */
+    margin: 0 auto;    /* Центрирование контента */
+    padding: 0 20px;   /* Безопасные отступы по бокам на мобильных */
+    box-sizing: border-box;
+}

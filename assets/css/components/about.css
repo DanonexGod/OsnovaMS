@@ -1,0 +1,239 @@
+/* ==========================================================================
+   ABOUT SECTION
+   MS Design System
+========================================================================== */
+
+.about {
+    position: relative;
+    overflow: hidden;
+}
+
+.about::before {
+    content: "";
+    position: absolute;
+    right: -220px;
+    top: -120px;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(76, 183, 240, .12),
+            transparent 70%);
+    pointer-events: none;
+}
+
+.about__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 540px;
+    gap: 96px;
+    align-items: center;
+}
+
+.about__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-weight: 700;
+    font-size: .85rem;
+}
+
+.about__eyebrow::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+}
+
+.about__title {
+    max-width: 700px;
+    margin-bottom: 28px;
+}
+
+.about__description {
+    max-width: 650px;
+    font-size: 1.1rem;
+}
+
+.about__cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+    margin-top: 56px;
+}
+
+.about-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+    transition: .35s;
+    border: 1px solid var(--color-border);
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.about-card__number {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+}
+
+.about-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.about-card p {
+    margin: 0;
+}
+
+.about__visual {
+    position: relative;
+}
+
+.about__glass {
+    position: relative;
+    height: 620px;
+    border-radius: 36px;
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.4);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.about__gradient {
+    position: absolute;
+    inset: 60px;
+    border-radius: 28px;
+    background: var(--gradient-primary);
+    transform: rotate(-8deg);
+}
+
+.about__logo {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about__logo img {
+    width: 220px;
+    filter: drop-shadow(0 20px 35px rgba(0,0,0,.15));
+}
+
+.about__badge {
+    position: absolute;
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(16px);
+    padding: 22px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+}
+
+.about__badge--top {
+    left: -40px;
+    top: 40px;
+}
+
+.about__badge--bottom {
+    right: -40px;
+    bottom: 50px;
+}
+
+.about__badge strong {
+    display: block;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-bottom: 6px;
+}
+
+@media (max-width:1100px){
+
+.about__wrapper{
+grid-template-columns:1fr;
+gap:64px;
+}
+
+.about__visual{
+order:-1;
+}
+
+}
+
+@media(max-width:768px){
+
+.about__cards{
+grid-template-columns:1fr;
+}
+
+.about__glass{
+height:420px;
+}
+
+.about__badge{
+display:none;
+}
+
+}
+/* Упрощение визуальной части */
+.about__visual {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.about__glass {
+    height: 400px; /* Уменьшаем высоту, чтобы блок не доминировал */
+    border-radius: 36px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Сетка преимуществ */
+.about__features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    background: var(--color-surface);
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+}
+
+.feature-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    flex-shrink: 0;
+}

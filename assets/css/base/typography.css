@@ -1,0 +1,393 @@
+/* ==========================================================================
+   TYPOGRAPHY
+   MS Design System
+========================================================================== */
+
+/* ==========================================================================
+   FONT FACE
+========================================================================== */
+
+@font-face {
+    font-family: "Manrope";
+    src: url("../../fonts/Manrope-Variable.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 200 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("../../fonts/Inter-Variable.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+/* ==========================================================================
+   BODY
+========================================================================== */
+
+body {
+
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-body);
+
+    color: var(--color-text);
+
+    font-weight: var(--font-weight-normal);
+
+}
+
+/* ==========================================================================
+   HEADINGS
+========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+    font-family: var(--font-heading);
+
+    color: var(--color-heading);
+
+    font-weight: var(--font-weight-extrabold);
+
+    line-height: var(--line-height-heading);
+
+    letter-spacing: -.03em;
+
+}
+
+h1 {
+
+    font-size: clamp(2.75rem, 5vw, 4rem);
+
+    margin-bottom: var(--space-8);
+
+}
+
+h2 {
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    margin-bottom: var(--space-6);
+
+}
+
+h3 {
+
+    font-size: clamp(1.5rem, 3vw, 2rem);
+
+    margin-bottom: var(--space-5);
+
+}
+
+h4 {
+
+    font-size: 1.5rem;
+
+    margin-bottom: var(--space-4);
+
+}
+
+h5 {
+
+    font-size: 1.25rem;
+
+    margin-bottom: var(--space-4);
+
+}
+
+h6 {
+
+    font-size: 1rem;
+
+    margin-bottom: var(--space-3);
+
+}
+
+/* ==========================================================================
+   PARAGRAPHS
+========================================================================== */
+
+p {
+
+    margin-bottom: var(--space-6);
+
+    color: var(--color-text-light);
+
+    max-width: 70ch;
+
+}
+
+p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+/* ==========================================================================
+   LINKS
+========================================================================== */
+
+a {
+
+    transition: color var(--transition-base);
+
+}
+
+a:hover {
+
+    color: var(--color-primary);
+
+}
+
+/* ==========================================================================
+   EMPHASIS
+========================================================================== */
+
+strong {
+
+    font-weight: var(--font-weight-bold);
+
+    color: var(--color-heading);
+
+}
+
+em {
+
+    font-style: italic;
+
+}
+
+/* ==========================================================================
+   SMALL
+========================================================================== */
+
+small {
+
+    font-size: var(--font-size-sm);
+
+}
+
+/* ==========================================================================
+   LISTS
+========================================================================== */
+
+.content ul,
+.content ol {
+
+    margin-bottom: var(--space-6);
+
+    padding-left: 1.5rem;
+
+}
+
+.content ul {
+
+    list-style: disc;
+
+}
+
+.content ol {
+
+    list-style: decimal;
+
+}
+
+.content li {
+
+    margin-bottom: var(--space-2);
+
+}
+
+/* ==========================================================================
+   BLOCKQUOTE
+========================================================================== */
+
+blockquote {
+
+    margin: var(--space-12) 0;
+
+    padding: var(--space-8);
+
+    border-left: 5px solid var(--color-primary);
+
+    background: var(--color-background-alt);
+
+    border-radius: var(--radius-md);
+
+    font-size: var(--font-size-xl);
+
+    font-style: italic;
+
+}
+
+/* ==========================================================================
+   CODE
+========================================================================== */
+
+code,
+pre {
+
+    font-family: Consolas, Monaco, monospace;
+
+}
+
+code {
+
+    padding: .15rem .35rem;
+
+    background: var(--color-surface-secondary);
+
+    border-radius: var(--radius-xs);
+
+}
+
+pre {
+
+    overflow: auto;
+
+    padding: var(--space-6);
+
+    background: #111827;
+
+    color: #fff;
+
+    border-radius: var(--radius-md);
+
+}
+
+/* ==========================================================================
+   SECTION TITLE
+========================================================================== */
+
+.section-title {
+
+    max-width: 760px;
+
+    margin-bottom: var(--space-12);
+
+}
+
+.section-title__eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: .6rem;
+
+    margin-bottom: var(--space-4);
+
+    font-size: .85rem;
+
+    font-weight: var(--font-weight-bold);
+
+    text-transform: uppercase;
+
+    letter-spacing: .18em;
+
+    color: var(--color-primary);
+
+}
+
+.section-title__heading {
+
+    margin-bottom: var(--space-5);
+
+}
+
+.section-title__description {
+
+    font-size: var(--font-size-lg);
+
+}
+
+/* ==========================================================================
+   TEXT UTILITIES
+========================================================================== */
+
+.text-center {
+
+    text-align: center;
+
+}
+
+.text-left {
+
+    text-align: left;
+
+}
+
+.text-right {
+
+    text-align: right;
+
+}
+
+.text-primary {
+
+    color: var(--color-primary);
+
+}
+
+.text-accent {
+
+    color: var(--color-accent);
+
+}
+
+.text-muted {
+
+    color: var(--color-text-muted);
+
+}
+
+.text-white {
+
+    color: var(--color-white);
+
+}
+
+.font-light {
+
+    font-weight: var(--font-weight-light);
+
+}
+
+.font-medium {
+
+    font-weight: var(--font-weight-medium);
+
+}
+
+.font-bold {
+
+    font-weight: var(--font-weight-bold);
+
+}
+
+/* ==========================================================================
+   RESPONSIVE
+========================================================================== */
+
+@media (max-width:768px){
+
+    p{
+
+        max-width:100%;
+
+    }
+
+    blockquote{
+
+        padding:var(--space-6);
+
+    }
+
+}

@@ -1,0 +1,200 @@
+/* ==========================================================================
+   BUTTONS
+   MS Design System
+========================================================================== */
+
+.button {
+    --button-bg: var(--color-primary);
+    --button-color: var(--color-white);
+    --button-border: transparent;
+
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+
+    min-width: 180px;
+    height: var(--button-height);
+
+    padding-inline: var(--button-padding-x);
+
+    border: 1px solid var(--button-border);
+    border-radius: var(--radius-full);
+
+    background: var(--button-bg);
+    color: var(--button-color);
+
+    font-family: var(--font-heading);
+    font-size: .95rem;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    transition:
+        transform .35s,
+        box-shadow .35s,
+        background .35s,
+        border-color .35s,
+        color .35s;
+}
+
+.button::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255,255,255,.28),
+            transparent
+        );
+
+    transform:translateX(-130%);
+
+    transition:transform .8s;
+
+}
+
+.button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.button:hover::before{
+
+    transform:translateX(130%);
+
+}
+
+.button:active{
+
+    transform:translateY(-1px);
+
+}
+
+.button:focus-visible{
+
+    outline:none;
+
+    box-shadow:
+        0 0 0 4px rgba(15,95,168,.18),
+        var(--shadow-md);
+
+}
+
+/* Primary */
+
+.button--primary{
+
+    --button-bg:var(--gradient-primary);
+
+}
+
+/* Secondary */
+
+.button--secondary{
+
+    --button-bg:transparent;
+
+    --button-color:var(--color-primary);
+
+    --button-border:var(--color-primary);
+
+}
+
+.button--secondary:hover{
+
+    background:var(--color-primary);
+
+    color:#fff;
+
+}
+
+/* White */
+
+.button--white{
+
+    --button-bg:#fff;
+
+    --button-color:var(--color-heading);
+
+}
+
+.button--white:hover{
+
+    background:var(--color-background-alt);
+
+}
+
+/* Ghost */
+
+.button--ghost{
+
+    --button-bg:transparent;
+
+    --button-border:transparent;
+
+    --button-color:var(--color-heading);
+
+}
+
+.button--ghost:hover{
+
+    background:var(--color-surface-secondary);
+
+}
+
+/* Sizes */
+
+.button--lg{
+
+    height:64px;
+
+    font-size:1rem;
+
+    padding-inline:42px;
+
+}
+
+.button--sm{
+
+    height:44px;
+
+    min-width:140px;
+
+    padding-inline:20px;
+
+}
+
+/* Icon */
+
+.button__icon{
+
+    width:20px;
+
+    height:20px;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.button{
+
+width:100%;
+
+}
+
+}

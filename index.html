@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мультисервис — Обслуживание, покраска и такелаж устройств самообслуживания</title>
+    
+    <!-- SYSTEM STYLES (BASE) -->
+    <link rel="stylesheet" href="assets/css/base/variables.css">
+    <link rel="stylesheet" href="assets/css/base/reset.css">
+    <link rel="stylesheet" href="assets/css/base/typography.css">
+    <link rel="stylesheet" href="assets/css/base/container.css">
+    <link rel="stylesheet" href="assets/css/base/grid.css">
+    <link rel="stylesheet" href="assets/css/base/animations.css">
+    
+    <!-- LAYOUT -->
+    <link rel="stylesheet" href="assets/css/layout/container.css">
+    <link rel="stylesheet" href="assets/css/layout/header.css">
+    
+    <!-- COMPONENTS -->
+    <link rel="stylesheet" href="assets/css/components/ui.css">
+    <link rel="stylesheet" href="assets/css/components/buttons.css">
+    <link rel="stylesheet" href="assets/css/components/hero.css">
+    <link rel="stylesheet" href="assets/css/components/advantages.css">
+    <link rel="stylesheet" href="assets/css/components/about.css">
+    <link rel="stylesheet" href="assets/css/components/services.css">
+    <link rel="stylesheet" href="assets/css/components/workflow.css">
+    <link rel="stylesheet" href="assets/css/components/projects.css">
+    <link rel="stylesheet" href="assets/css/components/clients.css">
+    <link rel="stylesheet" href="assets/css/components/footer.css">
+
+    <!-- ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ МОБИЛЬНОЙ АДАПТАЦИИ ШАПКИ -->
+    <style>
+    /* 1. Идеальный скролл и компенсация высоты шапки */
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 110px; /* Отступ для десктопа */
+    }
+
+    @media (max-width: 900px) {
+        html {
+            scroll-padding-top: 90px; /* Отступ для мобильных */
+        }
+    }
+
+    /* 2. Тактильные карточки (Преимущества, Услуги, О компании) */
+    .advantage-card, 
+    .service-card, 
+    .about-card,
+    .workflow-step__content {
+        transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+
+    .advantage-card:hover, 
+    .service-card:hover, 
+    .about-card:hover,
+    .workflow-step__content:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+        border-color: var(--color-primary-light, #cbd5e1);
+    }
+
+    /* 3. Премиальный эффект для фотографий в кейсах */
+    .project-card {
+        overflow: hidden; /* Скрываем всё, что выходит за рамки */
+    }
+    
+    .project-card__image-wrap {
+        overflow: hidden;
+    }
+
+    .project-card__image-wrap img {
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .project-card:hover .project-card__image-wrap img {
+        transform: scale(1.06); /* Мягкое увеличение фото при наведении */
+    }
+
+    /* 4. Приглушение логотипов клиентов для единого стиля */
+    .client-card img {
+        filter: grayscale(100%) opacity(0.6);
+        transition: filter 0.3s ease;
+    }
+
+    .client-card:hover img {
+        filter: grayscale(0%) opacity(1); /* Возвращаем цвет при наведении */
+    }
+</style>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <div class="container header__wrapper">
+            <a href="/" class="header__logo">
+                <img src="assets/img/logo.png" alt="Мультисервис Лого" width="130">
+            </a>
+            <!-- Обернули в .header__nav для строгого соответствия header.css -->
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li><a href="#about">О компании</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#workflow">Процесс</a></li>
+                    <li><a href="#projects">Кейсы</a></li>
+                    <li><a href="#clients">Клиенты</a></li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+                <a href="tel:+74950000000" class="header__phone">+7 (495) 000-00-00</a>
+                <a href="#contact" class="button button--secondary button--sm">Связаться</a>
+                <button class="header__burger" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main style="padding-top: 88px;">
+
+        <!-- ==================== HERO SECTION ==================== -->
+        <section class="hero">
+            <div class="hero__background-grid"></div>
+            <div class="container hero__wrapper">
+                <div class="hero__content" data-animate>
+                    <span class="hero__label">Федеральный сервис</span>
+                    <h1>Профессиональный сервис устройств самообслуживания</h1>
+                    <p class="text-muted">
+                        Косметический ремонт, покраска, клининг и такелаж банкоматов, терминалов и почтоматов по всей России. Возвращаем оборудованию заводской вид.
+                    </p>
+                    <div class="hero__buttons">
+                        <a href="#services" class="button button--primary">Наши услуги</a>
+                        <a href="#projects" class="button button--secondary">Смотреть кейсы</a>
+                    </div>
+                </div>
+                <div class="hero__visual">
+    <!-- Основное изображение устройства -->
+    <div class="hero__image-frame">
+        <img src="assets/img/hero-device.png" alt="Обслуживание банкоматов">
+    </div>
+    
+    <!-- Статистика в одну строку — это выглядит дороже и профессиональнее -->
+    <div class="hero__stats">
+        <div class="hero__stat-item">
+            <span class="hero__stat-value">100%</span>
+            <span class="hero__stat-label">Заводское качество</span>
+        </div>
+        <div class="hero__stat-item">
+            <span class="hero__stat-value">Вся РФ</span>
+            <span class="hero__stat-label">Оперативный выезд</span>
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+
+        <!-- ==================== ADVANTAGES ==================== -->
+        <section class="section" style="background: #f8fafc; padding-block: 60px;">
+            <div class="container">
+                <div class="advantages__grid">
+                    <div class="advantage-card" data-animate>
+                        <span class="badge" style="margin-bottom: 16px;">Скорость</span>
+                        <h3>Оперативный выезд</h3>
+                        <p class="text-muted" style="margin-top: 12px; font-size: 0.95rem;">Мобильные бригады готовы к развертыванию для минимизации простоя точек.</p>
+                    </div>
+                    <div class="advantage-card" data-animate>
+                        <span class="badge" style="margin-bottom: 16px;">Стандарты</span>
+                        <h3>Заводское качество</h3>
+                        <p class="text-muted" style="margin-top: 12px; font-size: 0.95rem;">Используем проверенные износостойкие составы и строго соблюдаем технологию колеровки.</p>
+                    </div>
+                    <div class="advantage-card" data-animate>
+                        <span class="badge" style="margin-bottom: 16px;">Масштаб</span>
+                        <h3>Любая сложность</h3>
+                        <p class="text-muted" style="margin-top: 12px; font-size: 0.95rem;">От легкого косметического клининга до масштабного демонтажа и такелажа крупных партий.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ABOUT SECTION ==================== -->
+        <section id="about" class="about section" style="padding-block: 80px;">
+            <div class="container about__wrapper">
+                <div class="about__content" data-animate>
+                    <span class="about__eyebrow">О компании</span>
+                    <h2 class="about__title">Ваш партнер в технической эстетике</h2>
+                    <p class="about__description text-muted">
+                        «Мультисервис» специализируется на поддержании инфраструктуры самообслуживания в идеальном состоянии. Мы знаем, что внешний вид банкомата напрямую влияет на лояльность клиентов и репутацию банка.
+                    </p>
+                    <div class="about__cards">
+                        <div class="about-card">
+                            <span class="about-card__number">24/7</span>
+                            <h3>Координация</h3>
+                            <p class="text-muted" style="font-size: 0.9rem;">Непрерывный контроль инженеров на объектах.</p>
+                        </div>
+                        <div class="about-card">
+                            <span class="about-card__number">10+</span>
+                            <h3>Лет опыта</h3>
+                            <p class="text-muted" style="font-size: 0.9rem;">Доверие крупнейших финансовых организаций.</p>
+                        </div>
+                        <div class="about-card">
+                            <span class="about-card__number">ФР</span>
+                            <h3>Регионы</h3>
+                            <p class="text-muted" style="font-size: 0.9rem;">Широкая сеть мобильных мастеров по РФ.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__visual is-visible" data-animate>
+    <div class="about__glass">
+        <div class="about__gradient"></div>
+        
+        <div class="about__logo">
+            <img src="assets/img/logo.png" alt="Мультисервис">
+        </div>
+    </div>
+
+    <div class="about__features">
+        <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div>
+                <strong>Контроль</strong>
+                <p class="text-muted">Прозрачная фотоотчетность</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div>
+                <strong>Гарантия</strong>
+                <p class="text-muted">На все виды покраски</p>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </section>
+
+        <!-- ==================== SERVICES SECTION ==================== -->
+        <section id="services" class="services section" style="background: #f8fafc; padding-block: 80px;">
+            <div class="container">
+                <div class="services__header">
+                    <span class="section-header__eyebrow">Что мы делаем</span>
+                    <h2>Комплексные решения для устройств самообслуживания</h2>
+                </div>
+                <div class="services__grid">
+                    <div class="service-card" data-animate>
+                        <div class="service-card__number">01</div>
+                        <h3>Покраска и реставрация</h3>
+                        <p class="text-muted">Устранение сколов, царапин, профессиональное шпатлевание и локальное или полное окрашивание корпусов.</p>
+                    </div>
+                    <div class="service-card" data-animate>
+                        <div class="service-card__number">02</div>
+                        <h3>Такелаж и логистика</h3>
+                        <p class="text-muted">Бережный демонтаж, перемещение, профессиональная фиксация и транспортировка тяжелого оборудования.</p>
+                    </div>
+                    <div class="service-card" data-animate>
+                        <div class="service-card__number">03</div>
+                        <h3>Брендирование и клининг</h3>
+                        <p class="text-muted">Глубокая очистка от следов скотча, оклейка пленками, обновление рекламных фризов и лайтбоксов.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== WORKFLOW SECTION ==================== -->
+        <section id="workflow" class="workflow section" style="padding-block: 80px;">
+            <div class="container">
+                <div class="workflow__header">
+                    <span class="section-header__eyebrow">Этапы работы</span>
+                    <h2>Прозрачный процесс реализации</h2>
+                </div>
+                <div class="workflow__timeline" style="max-width: 800px; margin: 0 auto;">
+                    <div class="workflow-step" data-animate>
+                        <div class="workflow-step__circle">1</div>
+                        <div class="workflow-step__content">
+                            <h3>Дефектовка</h3>
+                            <p class="text-muted">Оцениваем текущее состояние устройств удаленно по фото или с выездом, формируем точную смету.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step" data-animate>
+                        <div class="workflow-step__circle">2</div>
+                        <div class="workflow-step__content">
+                            <h3>Подготовка</h3>
+                            <p class="text-muted">Утверждаем графики выездов, подготавливаем пропуска для мастеров и логистические карты.</p>
+                        </div>
+                    </div>
+                    <div class="workflow-step" data-animate>
+                        <div class="workflow-step__circle">3</div>
+                        <div class="workflow-step__content">
+                            <h3>Выполнение</h3>
+                            <p class="text-muted">Проводим такелажные, малярные или восстановительные работы с четким соблюдением таймингов.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PROJECTS SECTION ==================== -->
+        <section id="projects" class="projects section" style="background: #f8fafc; padding-block: 80px;">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-header__eyebrow">Наши кейсы</span>
+                    <h2>Реализованные проекты</h2>
+                </div>
+                <div class="projects__grid">
+                    <!-- Большой кейс -->
+                    <div class="project-card project-card--large" data-animate>
+                        <div class="project-card__image-wrap" style="height: 380px; background: #cbd5e1; width: 100%;">
+                            <img src="assets/img/project-1.jpg" alt="Масштабная реставрация" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="project-card__content">
+                            <span class="badge" style="margin-bottom: 12px;">Комплексный проект</span>
+                            <h3>Реставрация сети банкоматов крупного банка</h3>
+                            <p class="text-muted" style="margin-top: 8px;">Полное обновление лакокрасочного покрытия и замена рекламных панелей на 50+ точках в сжатые сроки.</p>
+                        </div>
+                    </div>
+                    <!-- Маленький кейс 1 -->
+                    <div class="project-card project-card--small" data-animate>
+                        <div class="project-card__image-wrap" style="height: 240px; background: #cbd5e1; width: 100%;">
+                            <img src="assets/img/project-2.jpg" alt="Такелаж терминалов" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="project-card__content">
+                            <span class="badge" style="margin-bottom: 12px;">Такелаж</span>
+                            <h3>Перемещение зоны самообслуживания</h3>
+                            <p class="text-muted" style="margin-top: 8px;">Безопасный демонтаж и перевозка тяжеловесных терминалов в новый флагманский офис.</p>
+                        </div>
+                    </div>
+                    <!-- Маленький кейс 2 -->
+                    <div class="project-card project-card--small" data-animate>
+                        <div class="project-card__image-wrap" style="height: 240px; background: #cbd5e1; width: 100%;">
+                            <img src="assets/img/project-3.jpg" alt="Локальный ремонт" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        </div>
+                        <div class="project-card__content">
+                            <span class="badge" style="margin-bottom: 12px;">Покраска</span>
+                            <h3>Устранение дефектов сейфовой зоны</h3>
+                            <p class="text-muted" style="margin-top: 8px;">Локальное восстановление внешних панелей устройства после неудачной транспортировки сторонней службой.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CLIENTS SECTION ==================== -->
+        <section id="clients" class="clients section" style="padding-block: 80px;">
+            <div class="container">
+                <div class="clients__header">
+                    <span class="section-header__eyebrow">Нам доверяют</span>
+                    <h2>Работаем с лидерами рынка</h2>
+                </div>
+                <div class="clients__grid">
+                    <div class="client-card" data-animate><img src="assets/img/client-1.svg" alt="Альфа-Банк"></div>
+                    <div class="client-card" data-animate><img src="assets/img/client-2.svg" alt="Т-Банк"></div>
+                    <div class="client-card" data-animate><img src="assets/img/client-3.svg" alt="ВТБ"></div>
+                    <div class="client-card" data-animate><img src="assets/img/client-4.svg" alt="Сбер"></div>
+                    <div class="client-card" data-animate><img src="assets/img/client-5.svg" alt="Газпромбанк"></div>
+                    <div class="client-card" data-animate><img src="assets/img/client-6.svg" alt="Озон"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="container footer__grid">
+                <div class="footer__info">
+                    <div class="footer__logo">
+                        <img src="assets/img/logo-white.svg" alt="Мультисервис Лого Белый">
+                    </div>
+                    <p class="footer__text">
+                        Профессиональные технические и малярные решения для банковской и торговой инфраструктуры. Работаем по всей территории Российской Федерации.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer__title">Навигация</h4>
+                    <ul class="footer__list">
+                        <li><a href="#about">О компании</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#workflow">Этапы работы</a></li>
+                        <li><a href="#projects">Наши кейсы</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__title">Услуги</h4>
+                    <ul class="footer__list">
+                        <li><a href="#services">Покраска банкоматов</a></li>
+                        <li><a href="#services">Такелаж оборудования</a></li>
+                        <li><a href="#services">Технический клининг</a></li>
+                        <li><a href="#services">Брендирование сетей</a></li>
+                    </ul>
+                </div>
+                <div class="footer__contacts">
+                    <h4 class="footer__title">Контакты</h4>
+                    <a href="tel:+74950000000" style="font-weight:700;">+7 (495) 000-00-00</a>
+                    <p style="color: #94a3b8; font-size: 0.9rem; margin: 0;">info@multiservice.ru</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <!-- Заменили инлайн-стили на твой класс .footer__bottom-wrapper из footer.css -->
+            <div class="container footer__bottom-wrapper">
+                <p class="footer__copyright">&copy; 2026 ООО «Мультисервис». Все права защищены.</p>
+                <p><a href="#privacy" style="color: #94a3b8; text-decoration:none; font-size: 0.9rem;">Политика конфиденциальности</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== INTERACTIVE SCRIPTS ==================== -->
+    <script>
+        // 1. Динамическая шапка при скролле
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Бургер-меню (открытие/закрытие боковой панели на мобильных)
+        const burger = document.querySelector('.header__burger');
+        const navMenu = document.querySelector('.header__nav');
+        const navLinks = document.querySelectorAll('.header__menu a');
+
+        if (burger && navMenu) {
+            // Переключение меню по клику на бургер
+            burger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                burger.classList.toggle('active');
+                navMenu.classList.toggle('is-open');
+            });
+
+            // Закрытие меню при клике на любой пункт навигации
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    burger.classList.remove('active');
+                    navMenu.classList.remove('is-open');
+                });
+            });
+
+            // Закрытие меню при клике в любое свободное место экрана
+            document.addEventListener('click', (e) => {
+                if (!navMenu.contains(e.target) && !burger.contains(e.target)) {
+                    burger.classList.remove('active');
+                    navMenu.classList.remove('is-open');
+                }
+            });
+        }
+
+        // 3. Плавное появление элементов (IntersectionObserver)
+        const animatedElements = document.querySelectorAll('[data-animate]');
+        const animationObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -20px 0px"
+        });
+
+        animatedElements.forEach(el => animationObserver.observe(el));
+    </script>
+</body>
+</html>
