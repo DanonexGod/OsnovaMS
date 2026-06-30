@@ -144,3 +144,99 @@
     line-height: 1.5;
     font-size: 0.95rem;
 }
+
+/* Базовые стили карточки */
+.advantage-card {
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease; /* Плавный переход для цвета и тени */
+    border: 1px solid transparent;
+}
+
+/* Эффект наведения: меняется только фон и цвет текста */
+.advantage-card:hover {
+    background: #3b82f6; /* Ваш синий цвет */
+    color: #ffffff;      /* Текст становится белым */
+    cursor: pointer;
+}
+
+/* Иконки остаются "как есть", мы их не трогаем в hover */
+.advantage-card .icon {
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+/* Адаптивность для мобильных телефонов */
+@media (max-width: 768px) {
+    .advantages-grid {
+        grid-template-columns: 1fr; /* Одна колонка на мобильных */
+        gap: 15px;
+    }
+}
+
+/* 1. Секция и заголовок */
+.advantages-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Центрирует всю секцию на странице */
+}
+
+.section-title {
+    text-align: center; /* Это центрирует сам текст */
+    display: block;     /* Гарантирует, что заголовок ведет себя как блок */
+    margin: 0 auto;     /* Дополнительно центрирует блок, если задана ширина */
+}
+
+/* 2. Адаптивная сетка */
+.advantages-grid {
+    display: grid;
+    /* 3 колонки на ПК, 2 на планшетах, 1 на мобильных */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+}
+
+/* 3. Стилизация карточек */
+.advantage-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease; /* Плавность для цвета и тени */
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+/* 4. Синяя подсветка при наведении */
+.advantage-card:hover {
+    background: #3b82f6; /* Ваш синий цвет */
+    color: #ffffff;      /* Текст становится белым */
+    transform: translateY(-5px); /* Легкий "прыжок" вверх */
+}
+
+/* Специальное состояние для уже синего блока (Индивидуальный подход) */
+.advantage-card.active {
+    background: #3b82f6;
+    color: #ffffff;
+}
+
+/* 5. Адаптивность для мобильных устройств */
+@media (max-width: 992px) {
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+    }
+}
+
+@media (max-width: 600px) {
+    .advantages-grid {
+        grid-template-columns: 1fr; /* 1 колонка на смартфонах */
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
