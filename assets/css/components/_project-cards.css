@@ -1,0 +1,21 @@
+/* Было для большого кейса: 21/9 (широкий формат) */
+/* Ставим 16/9 или 4/3, чтобы фото стало выше и "крупнее" */
+
+.project-card--large .project-card__image-wrap {
+    aspect-ratio: 16 / 9; /* Фото станет заметно выше */
+}
+
+.project-card--small .project-card__image-wrap {
+    aspect-ratio: 4 / 3; /* Фото в маленьких карточках тоже станут квадратнее и больше */
+}
+.project-card {
+    padding: 0; /* Убираем лишние отступы у самой карточки */
+}
+
+.project-card__content {
+    padding: 20px; /* Оставляем отступ только там, где текст */
+}
+.projects__grid {
+    max-width: 1400px; /* Увеличили ширину блока на десктопе */
+    margin: 0 auto;
+}

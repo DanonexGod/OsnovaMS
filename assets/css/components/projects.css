@@ -1,50 +1,146 @@
-/* Контейнер сетки */
+/* Основной контейнер карточки */
+/* --- Сетка проектов: делаем фото крупнее и ровнее --- */
 .projects__grid {
-    display: flex;
-    flex-wrap: wrap; /* Позволяет карточкам переноситься на новую строку */
-    gap: 24px;       /* Расстояние между карточками */
-    width: 100%;
-    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px; /* Отступы между карточками */
+    margin: 40px auto;
+    max-width: 1200px;
 }
 
-/* Базовые стили для всех карточек */
 .project-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden; /* Обрезает лишнее, фото идеально вписывается */
     display: flex;
     flex-direction: column;
-    background: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    box-sizing: border-box;
 }
 
-/* Большая карточка занимает 100% ширины */
-.project-card--large {
-    flex: 1 1 100%;
+/* ЭТОТ БЛОК ДЕЛАЕТ ФОТО БОЛЬШИМИ */
+.project-card__image-wrap {
     width: 100%;
-}
-
-/* Маленькие карточки встают по две в ряд на десктопе */
-.project-card--small {
-    /* Вычитаем половину отступа gap (24px / 2 = 12px) */
-    flex: 1 1 calc(50% - 12px); 
-    min-width: 300px; /* На мобильных они автоматически встанут в один ряд */
-}
-
-/* Ограничиваем изображения, чтобы они не растягивали блоки */
-.project-card__image {
-    width: 100%;
-    height: auto;
+    aspect-ratio: 16 / 9; /* Фото станут выше и крупнее */
     overflow: hidden;
 }
 
-.project-card__image img {
+.project-card__image-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Фото заполнит всё пространство без искажений */
     display: block;
 }
 
 .project-card__content {
     padding: 24px;
+}
+
+/* Делаем первый кейс широким */
+.project-card--large {
+    grid-column: span 2;
+}
+
+/* Адаптив для телефонов */
+@media (max-width: 768px) {
+    .projects__grid {
+        grid-template-columns: 1fr;
+    }
+    .project-card--large {
+        grid-column: span 1;
+    }
+}
+
+.hero__stats {
+    display: flex;
+    gap: 2rem; /* Расстояние между элементами */
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный фон */
+    border-radius: 1rem;
+    backdrop-filter: blur(10px); /* Тот самый премиальный эффект стекла */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: fit-content; /* Блок по ширине контента */
+    margin-top: 1rem;
+}
+
+.hero__stat {
+    display: flex;
+    flex-direction: column;
+    min-width: 120px; /* Чтобы текст не сжимался до нечитаемого */
+}
+
+.hero__stat span {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-primary); /* Ваш основной цвет */
+    line-height: 1.2;
+}
+
+.hero__stat p {
+    font-size: 0.85rem;
+    color: #64748b; /* Приглушенный цвет текста */
+    margin: 0;
+}
+
+/* Адаптив: если места мало, они встают в столбик */
+@media (max-width: 480px) {
+    .hero__stats {
+        flex-direction: row;
+        gap: 1rem;
+        width: 100%;
+        justify-content: space-around;
+    }
+}
+
+.hero h1 {
+    font-size: 3.5rem;       /* Немного уменьшим размер для гармонии */
+    line-height: 1.1;        /* Сблизим строки, чтобы заголовок был монолитным */
+    font-weight: 800;        /* Жирный шрифт для авторитетности */
+    color: #0f172a;          /* Темно-синий/черный цвет */
+    max-width: 600px;        /* КЛЮЧЕВОЙ ПАРАМЕТР: ограничивает ширину текста */
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em; /* Чуть сблизим буквы для премиальности */
+}
+
+/* На мобильных телефонах делаем шрифт чуть меньше */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Фиксируем сетку, чтобы блоки не разъезжались */
+.about__content .grid--2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две равные колонки */
+    gap: 20px; /* Отступ между карточками */
+    margin-top: 20px;
+}
+
+/* Оформление самой карточки (surface) */
+.surface {
+    background: #ffffff; /* Белый фон */
+    border: 1px solid #e2e8f0; /* Светлый контур */
+    border-radius: 16px; /* Скругление углов */
+    padding: 24px; /* Внутренний отступ */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Эффект при наведении для премиальности */
+.surface:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Работа с текстом внутри */
+.surface strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: #0f172a;
+}
+
+.surface .text-muted {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95rem;
 }
